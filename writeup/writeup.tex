@@ -25,7 +25,7 @@ with alternative grammars}
     \begin{enumerate}
       \item A complete sequence of terminals has been derived and no
         non-terminals are remaining
-      \item The identity of the previous $N-1$ words is known
+      \item The identity of the previous $N-1$ terminals is known
     \end{enumerate}
     Rules containing non-terminals or yielding less than $N$ terminal symbols
     do not satisfy these requirements, hence it doesn't make sense to assign
@@ -121,7 +121,7 @@ ScoreBLEU.sh \
 
         In contrast, B contains hiero rules out of the $X$ non-terminal and
         hence implement hierarchical phrases, which have greater generality
-        but also increased computational complexity.
+        but also increased computational complexity (e.g.\ cube pruning, HiFST).
     \end{enumerate}
 
     These differences can help explain differences in translation. For reference,
