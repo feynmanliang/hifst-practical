@@ -3,7 +3,7 @@
 setopt noglob
 
 ##
-# Ex 1
+# Ex 2
 ##
 
 # For a preliminary test, run the following command, which translates sentence
@@ -20,7 +20,7 @@ SUNMAP=$DIR/wmaps/english.unmap
 printstrings --input=output/example/LATS/14.fst.gz --label-map=$SUNMAP -w 2> /dev/null
 
 ##
-# Ex 2
+# Ex 3
 ##
 
 # For example, let us find the derivations that lead to the 1-best candidate from before.
@@ -48,7 +48,7 @@ printstrings -n 1 -u -w --input=output/example/LATS.hyp1/14.fst.gz \
   --print-output-labels 2> /dev/null
 
 ##
-# Ex 3
+# Ex 4
 ##
 
 # Drawing derivation tree

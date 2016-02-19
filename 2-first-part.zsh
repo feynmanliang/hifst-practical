@@ -51,6 +51,18 @@ GRAMB=$DIR/rules/test30/B/
 # slower
 
 
+# According to sentence-level BLEU scores, is every translated sentence better with grammar B
+# than with A?
+# (a) Examine two sentences where you obtain a significantly better score with rulefile B, show-
+# ing the input sentence, the English reference and the two alternative translations. Do you
+# think the sentence-level BLEU score reflects a true improvement in translation quality?
+# Show 5 examples of clear improvement in the produced English hypothesis.
+#
+# (b) Repeat the previous question with a sentence that gets lower score with rulefile B. Does
+# the BLEU score reflect a true degradation in translation quality? Why do you think it is
+# worse?
+
+
 # Compare rulefiles A and B for sentence 27. What are the main differences you observe? Pay
 # special attention to the nonterminals used in the various columns. How do these differences in
 # the rulefiles explain the differences in the produced translation?
