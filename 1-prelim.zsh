@@ -10,22 +10,22 @@ setopt noglob
 
 # For a preliminary test, run the following command, which translates sentence
 # 14 from the test file:
-hifst $DIR/configs/basic+params.features \
-  --textinput=$DIR/input/test30.spa.idx \
-  --rulefile=$DIR/rules/test30/B/r.?.gz \
-  --lm=$DIR/lm/test30.news-newscomm.eng.4g/G/?.G.gz --lmn=4 \
-  --range=14:14 \
-  --latoutputfst=output/example/LATS/?.fst.gz
+#hifst $DIR/configs/basic+params.features \
+#  --textinput=$DIR/input/test30.spa.idx \
+#  --rulefile=$DIR/rules/test30/B/r.?.gz \
+#  --lm=$DIR/lm/test30.news-newscomm.eng.4g/G/?.G.gz --lmn=4 \
+#  --range=14:14 \
+#  --latoutputfst=output/example/LATS/?.fst.gz
 
 # Run the following command to check that the 1-best translation has a cost of 33.7 and is:
 SUNMAP=$DIR/wmaps/english.unmap
-printstrings --input=output/example/LATS/14.fst.gz --label-map=$SUNMAP -w 2> /dev/null
+#printstrings --input=output/example/LATS/14.fst.gz --label-map=$SUNMAP -w 2> /dev/null
 
-# How many alternative translations are generated?
-printstrings --input=output/example/LATS/14.fst.gz --label-map=$SUNMAP -w -n 1000 2>/dev/null | cut -d '.' -f 1 | sort | uniq | wc -l
+# How many (unique) alternative translations are generated?
+printstrings -n 10000 --input=output/example/LATS/14.fst.gz -w -u | wc -l
 # 20
-# How many translation candidates candidates, including repeated?
-printstrings --input=output/example/LATS/14.fst.gz --label-map=$SUNMAP -w -n 1000 2>/dev/null | wc -l
+# How many translation candidates candidates (including repeated)?
+printstrings -n 10000 --input=output/example/LATS/14.fst.gz -w | wc -l
 # 797
 
 ##
@@ -56,11 +56,17 @@ printstrings --input=output/example/LATS/14.fst.gz --label-map=$SUNMAP -w -n 100
 #printstrings -n 1 -u -w --input=output/example/LATS.hyp1/14.fst.gz \
 #  --print-output-labels 2> /dev/null
 
-###
-## Ex 4
-###
-#
-## Drawing derivation tree
+# Check that the translation lattice has a single output translation
+printstrings -n 10000 -u -w --input=output/example/LATS.hyp1/14.fst.gz -p | wc -l
+# 0
+# How many alternative derivations can generate this single hypothesis?
+printstrings -n 10000 -u -w --input=output/example/LATS.hyp1/14.fst.gz | wc -l
+# 83
+
+##
+# Drawing derivation tree
+##
+
 #printstrings -n 1 -u --input=output/example/LATS.hyp1/14.fst.gz --output=example.dvn1
 #cat example.dvn1
 #
