@@ -31,7 +31,7 @@ GRAMB=$DIR/rules/test30/B/
 #  --lm=$DIR/lm/test30.news-newscomm.eng.4g/G/?.G.gz --lmn=4 \
 #  --range=1:30 \
 #  --latoutputfst=output/example/LATS.B/?.fst.gz
-#
+
 ## Write the 1-best translations from all lattices to a single file outB :
 #printstrings --r=1:30 --input=output/example/LATS.B/?.fst.gz \
 #  --output=outB --label-map=$SUNMAP
@@ -94,20 +94,20 @@ GRAMB=$DIR/rules/test30/B/
 
 # By examining the resulting output transducers, determine for how many
 # input sentences can the reference be generated? Compare this for grammar A and B
-integer Acnt=0
-integer Bcnt=0
-for i in {1..30}; do
-  integer newA=$(printstrings -n 500000 -u -w --input=output/example/LATS.A.towards_ref/$i.fst.gz \
-    2>/dev/null \
-    | wc -l)
-  integer newB=$(printstrings -n 500000 -u -w --input=output/example/LATS.B.towards_ref/$i.fst.gz \
-    2>/dev/null \
-    | wc -l)
-  print "$i, $newA, $newB"
-  Acnt+=newA
-  Bcnt+=newB
-done
-print "Acnt: $Acnt, Bcnt: $Bcnt"
+#integer Acnt=0
+#integer Bcnt=0
+#for i in {1..30}; do
+#  integer newA=$(printstrings -n 500000 -u -w --input=output/example/LATS.A.towards_ref/$i.fst.gz \
+#    2>/dev/null \
+#    | wc -l)
+#  integer newB=$(printstrings -n 500000 -u -w --input=output/example/LATS.B.towards_ref/$i.fst.gz \
+#    2>/dev/null \
+#    | wc -l)
+#  print "$i, $newA, $newB"
+#  Acnt+=newA
+#  Bcnt+=newB
+#done
+#print "Acnt: $Acnt, Bcnt: $Bcnt"
 # 1, 4, 8
 # 2, 1, 1
 # 3, 1, 1
