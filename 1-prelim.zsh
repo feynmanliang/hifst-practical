@@ -22,6 +22,8 @@ SUNMAP=$DIR/wmaps/english.unmap
 printstrings --input=output/example/LATS/14.fst.gz --label-map=$SUNMAP -w 2> /dev/null
 
 # How many alternative translations are generated?
+printstrings --input=output/example/LATS/14.fst.gz --label-map=$SUNMAP -w -n 1000 2>/dev/null | cut -d '.' -f 1 | sort | uniq | wc -l
+# 20
 # How many translation candidates candidates, including repeated?
 printstrings --input=output/example/LATS/14.fst.gz --label-map=$SUNMAP -w -n 1000 2>/dev/null | wc -l
 # 797
@@ -53,7 +55,7 @@ printstrings --input=output/example/LATS/14.fst.gz --label-map=$SUNMAP -w -n 100
 ## contents of example.hyp1.eng:
 #printstrings -n 1 -u -w --input=output/example/LATS.hyp1/14.fst.gz \
 #  --print-output-labels 2> /dev/null
-#
+
 ###
 ## Ex 4
 ###
