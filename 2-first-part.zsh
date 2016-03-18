@@ -164,50 +164,50 @@ GRAMB=$DIR/rules/test30/B/
 
 # By examining the resulting output transducers, determine for how many
 # input sentences can the reference be generated? Compare this for grammar A and B
-#integer Acnt=0
-#integer Bcnt=0
-#for i in {1..30}; do
-#  integer numA=$(printstrings -n 500000 -u -w --input=output/example/LATS.A.towards_ref/$i.fst.gz \
-#    2>/dev/null \
-#    | wc -l)
-#  integer numB=$(printstrings -n 500000 -u -w --input=output/example/LATS.B.towards_ref/$i.fst.gz \
-#    2>/dev/null \
-#    | wc -l)
-#  print "$i, $numA, $numB"
-#  Acnt+=numA
-#  Bcnt+=numB
-#done
-#print "Acnt: $Acnt, Bcnt: $Bcnt"
+integer Acnt=0
+integer Bcnt=0
+for i in {1..30}; do
+  integer numA=$(printstrings -n 500000 -u -w --input=output/example/LATS.A.towards_ref/$i.fst.gz \
+    2>/dev/null \
+    | sed '/[EMPTY]/d' \
+    | wc -l)
+  integer numB=$(printstrings -n 500000 -u -w --input=output/example/LATS.B.towards_ref/$i.fst.gz \
+    2>/dev/null \
+    | sed '/[EMPTY]/d' \
+    | wc -l)
+  print "$i, $numA, $numB"
+  Acnt+=numA
+  Bcnt+=numB
+done
+print "Acnt: $Acnt, Bcnt: $Bcnt"
 # 1, 4, 8
-# 2, 1, 1
-# 3, 1, 1
-# 4, 1, 1
-# 5, 1, 165
-# 6, 1, 1
-# 7, 1, 8586
-# 8, 1, 1
-# 9, 1, 1
+# 2, 0, 0
+# 3, 0, 0
+# 4, 0, 0
+# 5, 0, 165
+# 6, 0, 0
+# 7, 0, 8586
+# 8, 0, 0
+# 9, 0, 0
 # 10, 48, 122
-# 11, 1, 1
-# 12, 1, 84
+# 11, 0, 0
+# 12, 0, 84
 # 13, 11070, 51692
 # 14, 47, 83
-# 15, 1, 1
-# 16, 1, 1
-# 17, 1, 1
-# 18, 1, 1
-# 19, 1, 1
+# 15, 0, 0
+# 16, 0, 0
+# 17, 0, 0
+# 18, 0, 0
+# 19, 0, 0
 # 20, 52, 166
-# 21, 1, 1
+# 21, 0, 0
 # 22, 500000, 500000
 # 23, 2586, 14030
-# 24, 1, 1
-# 25, 1, 282
+# 24, 0, 0
+# 25, 0, 282
 # 26, 270, 658
-# 27, 1, 1
-# 28, 1, 1
-# 29, 1, 1
-# 30, 1, 1
-# Acnt: 514099, Bcnt: 575894
-
-
+# 27, 0, 0
+# 28, 0, 0
+# 29, 0, 0
+# 30, 0, 0
+# Acnt: 514077, Bcnt: 575876
