@@ -42,31 +42,84 @@ GRAMB=$DIR/rules/test30/B/
 
 
 #print "Scoring grammar A:"
-ScoreBLEU.sh \
-  -t outA \
-  -r $DIR/reference/test30.eng
+#ScoreBLEU.sh \
+#  -t outA \
+#  -r $DIR/reference/test30.eng
 # BLEU score = 0.4778
 # faster
 
 #print "Scoring grammar B:"
-ScoreBLEU.sh \
-  -t outB \
-  -r $DIR/reference/test30.eng
+#ScoreBLEU.sh \
+#  -t outB \
+#  -r $DIR/reference/test30.eng
 # BLEU score = 0.5265
 # slower
 
 
 # According to sentence-level BLEU scores, is every translated sentence better with grammar B
 # than with A?
+#for i in {1..30}; do
+#  printstrings --r=$i:$i --input=output/example/LATS.A/?.fst.gz 2>/dev/null \
+#    | sed 's/<s> //g' | sed 's/ <\/s>//g' \
+#    > tmp
+#  scoreA=$(ScoreBLEU.sh \
+#    -t tmp \
+#    -r $DIR/reference/test30/r.$i.eng.idx \
+#    | cut -d ' ' -f 4)
+
+#  printstrings --r=$i:$i --input=output/example/LATS.B/?.fst.gz 2>/dev/null \
+#    | sed 's/<s> //g' | sed 's/ <\/s>//g' \
+#    > tmp
+#  scoreB=$(ScoreBLEU.sh \
+#    -t tmp \
+#    -r $DIR/reference/test30/r.$i.eng.idx \
+#    | cut -d ' ' -f 4)
+#  rm tmp
+
+#  print "$i,$scoreA,$scoreB"
+#done
+# 1,1.0000,1.0000
+# 2,0.2126,0.2163
+# 3,0.1548,0.1579
+# 4,0.0994,0.0994
+# 5,0.3575,0.6865
+# 6,0.2677,0.2677
+# 7,0.2878,0.7277
+# 8,0.6695,0.6695
+# 9,0.4694,0.5405
+# 10,0.8154,0.8154
+# 11,0.2555,0.2623
+# 12,0.2131,0.2131
+# 13,0.8579,0.8606
+# 14,1.0000,1.0000
+# 15,0.4845,0.5428
+# 16,0.6741,0.7268
+# 17,0.2641,0.2641
+# 18,0.2923,0.2923
+# 19,0.8215,0.8215
+# 20,0.7825,0.7825
+# 21,0.5787,0.6901
+# 22,0.8465,0.8465
+# 23,1.0000,1.0000
+# 24,0.8496,0.8496
+# 25,0.2024,0.5933
+# 26,1.0000,1.0000
+# 27,0.2510,0.3493
+# 28,0.0665,0.0665
+# 29,0.0780,0.0768
+# 30,0.3597,0.3475
+
+
 # (a) Examine two sentences where you obtain a significantly better score with rulefile B, show-
 # ing the input sentence, the English reference and the two alternative translations. Do you
 # think the sentence-level BLEU score reflects a true improvement in translation quality?
 # Show 5 examples of clear improvement in the produced English hypothesis.
-#
+# Sentences 5 and 27
+
 # (b) Repeat the previous question with a sentence that gets lower score with rulefile B. Does
 # the BLEU score reflect a true degradation in translation quality? Why do you think it is
 # worse?
-
+# Sentence 30
 
 # Compare rulefiles A and B for sentence 27. What are the main differences you observe? Pay
 # special attention to the nonterminals used in the various columns. How do these differences in
