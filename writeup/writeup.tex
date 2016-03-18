@@ -522,21 +522,32 @@ print "Bcnt: $Bcnt, Ccnt: $Ccnt"
     in under B but a non-zero number under C \autoref{tab:inputs-per-ref-bc}
     provide a counterexample.
 
-  \item We will consider sentences 9 and 27.
+  \item We will consider sentences 3 (\autoref{fig:3-c-tree} and 27 (\autoref{fig:27-c-tree}).
     \begin{figure}[h!]
       \begin{center}
-        \includegraphics[scale=0.5]{../output/tree9Cdvn1.jpg}
+        \includegraphics[scale=0.2]{../output/tree3Cdvn1.jpg}
       \end{center}
-      \caption{Sentence 9 derivation tree under ruleset C}
-      \label{fig:9-c-tree}
+      \caption{Sentence 3 derivation tree under ruleset C}
+      \label{fig:3-c-tree}
     \end{figure}
     \begin{figure}[h!]
       \begin{center}
-        \includegraphics[scale=0.5]{../output/tree27Bdvn1.jpg}
+        \includegraphics[scale=0.5]{../output/tree27Cdvn1.jpg}
       \end{center}
       \caption{Sentence 27 derivation tree under ruleset C}
       \label{fig:27-c-tree}
     \end{figure}
+    Notice that both of these derivation trees contain paths to terminal nodes
+    containing more than one non-terminal node, corresponding to recursive application
+    of heiro rules.
+
+    These trees are not valid in grammar B because grammr B does not support recursive
+    application of heiro-rules. Looking at the rulefiles, we see that all the
+    grammar B heiro rules are productions on non-terminals $X$ and yield
+    non-terminals $V$, hence they can only be applied at most once along any
+    path to a terminal. In contrast, grammar C's heiro rules are both defined
+    on $V$ and yield non-terminals $V$, hene they can be recursively applied
+    and nested.
 \end{enumerate}
 
 %\bibliographystyle{alpha}
