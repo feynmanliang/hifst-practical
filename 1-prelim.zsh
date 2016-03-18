@@ -58,7 +58,7 @@ printstrings -n 10000 --input=output/example/LATS/14.fst.gz -w | wc -l
 
 # Check that the translation lattice has a single output translation
 printstrings -n 10000 -u -w --input=output/example/LATS.hyp1/14.fst.gz -p | wc -l
-# 0
+# 1
 # How many alternative derivations can generate this single hypothesis?
 printstrings -n 10000 -u -w --input=output/example/LATS.hyp1/14.fst.gz | wc -l
 # 83

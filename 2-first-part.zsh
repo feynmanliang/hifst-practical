@@ -167,15 +167,15 @@ GRAMB=$DIR/rules/test30/B/
 #integer Acnt=0
 #integer Bcnt=0
 #for i in {1..30}; do
-#  integer newA=$(printstrings -n 500000 -u -w --input=output/example/LATS.A.towards_ref/$i.fst.gz \
+#  integer numA=$(printstrings -n 500000 -u -w --input=output/example/LATS.A.towards_ref/$i.fst.gz \
 #    2>/dev/null \
 #    | wc -l)
-#  integer newB=$(printstrings -n 500000 -u -w --input=output/example/LATS.B.towards_ref/$i.fst.gz \
+#  integer numB=$(printstrings -n 500000 -u -w --input=output/example/LATS.B.towards_ref/$i.fst.gz \
 #    2>/dev/null \
 #    | wc -l)
-#  print "$i, $newA, $newB"
-#  Acnt+=newA
-#  Bcnt+=newB
+#  print "$i, $numA, $numB"
+#  Acnt+=numA
+#  Bcnt+=numB
 #done
 #print "Acnt: $Acnt, Bcnt: $Bcnt"
 # 1, 4, 8
