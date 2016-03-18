@@ -36,18 +36,23 @@ GRAMB=$DIR/rules/test30/B/
 #printstrings --r=1:30 --input=output/example/LATS.B/?.fst.gz \
 #  --output=outB --label-map=$SUNMAP
 
+## Post-process hypotheses: string <s> and </s> tags
+#cat outA | sed 's/<s> //g' | sed 's/ <\/s>//g' > outA
+#cat outB | sed 's/<s> //g' | sed 's/ <\/s>//g' > outB
+
+
 #print "Scoring grammar A:"
-#ScoreBLEU.sh \
-#  -t outA \
-#  -r $DIR/reference/test30.eng
-# BLEU score = 0.3515 (0.3515 * 1.0000) for system "1"
+ScoreBLEU.sh \
+  -t outA \
+  -r $DIR/reference/test30.eng
+# BLEU score = 0.4778
 # faster
 
 #print "Scoring grammar B:"
-#ScoreBLEU.sh \
-#  -t outB \
-#  -r $DIR/reference/test30.eng
-# BLEU score = 0.3861 (0.3861 * 1.0000) for system "1"
+ScoreBLEU.sh \
+  -t outB \
+  -r $DIR/reference/test30.eng
+# BLEU score = 0.5265
 # slower
 
 
