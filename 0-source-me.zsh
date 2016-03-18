@@ -6,5 +6,4 @@ source ./setup.zsh
 
 if ! [[ -d output ]]; then
   mkdir output
-done
-
+fi
